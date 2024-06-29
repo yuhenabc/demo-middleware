@@ -1,9 +1,6 @@
 export default function final(next) {
   return function (action) {
-    const { m1, m2, m3 } = action;
-    action.payload = {
-      value: m1 + m2 + m3,
-    };
+    action.payload.value = Object.values(action.payload).reduce((a, b) => Math.max(a, b), 0);
     next(action);
   };
 }

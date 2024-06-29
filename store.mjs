@@ -1,6 +1,7 @@
 const store = {
   dispatch: (action) => {
-    console.log('dispating action:', action);
+    console.log('dispating action:');
+    console.table([action.payload]);
   },
   applyMiddlewares(middlewares) {
     this.dispatch = middlewares.reduceRight(
@@ -10,6 +11,4 @@ const store = {
   },
 };
 
-export {
-  store,
-};
+export default store;
