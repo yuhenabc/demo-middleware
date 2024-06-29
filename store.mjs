@@ -1,5 +1,8 @@
 const store = {
   dispatch: (action) => {
+    action.payload = {
+      value: Object.values(action.payload).reduce((a, b) => Math.max(a, b), 0)
+    }
     console.log('dispating action:');
     console.table([action.payload]);
   },
